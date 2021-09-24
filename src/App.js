@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css"
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { renderRouteAdmin, renderRouteHome } from "./routes/index"
+import PageNotFound from "./containers/PageNotFound"
+import Navbar from './containers/HomeTemplate/_components/Navbar/Navbar';
+import NavbarAdmin from './containers/AdminTemplate/_components/Navbar/Navbar';
 
+import Footer from './containers/HomeTemplate/_components/Footer/Footer';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {/* <Navbar />
+      <NavbarAdmin /> */}
+      <Switch>
+        {renderRouteHome()}
+        {renderRouteAdmin()}
+        <Route path="*" component={PageNotFound} />
+      </Switch>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
