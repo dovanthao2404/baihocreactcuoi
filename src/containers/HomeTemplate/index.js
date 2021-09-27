@@ -12,11 +12,11 @@ function LayOutHome(props) {
 }
 
 function HomeTemplate(props) {
-  const { exact, path, component } = props
+  const { exact, path, Component } = props
   return <>
     {/* <Navbar /> */}
     <LayOutHome>
-      <Route exact={exact} path={path} component={component} />
+      <Route exact={exact} path={path} component={Component} />
     </LayOutHome>
   </>
 

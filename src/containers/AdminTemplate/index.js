@@ -10,13 +10,12 @@ function LayOutAdmin(props) {
 
 
 }
-export default function AdminTemplate(props) {
-  const { exact, path, component } = props
-  return (
-    <>
+export default function AdminTemplate({ Component, ...props }) {
+  return <Route {...props} render={(propsRoute) => {
+    return (
       <LayOutAdmin>
-        <Route exact={exact} path={path} component={component} />
+        <Component {...propsRoute} />
       </LayOutAdmin>
-    </>
-  )
+    )
+  }} />
 }

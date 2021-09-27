@@ -12,7 +12,7 @@ class DetailsMoviePage extends Component {
   }
 
   renderLichChieu = () => {
-    const { isLoading, detailMovie } = this.props.detailMovie
+    const { detailMovie } = this.props.detailMovie
     return detailMovie?.lichChieu?.map((item, index) => {
       console.log(item.ngayChieuGioChieu)
       return <tr key={item.maLichChieu}>
@@ -36,7 +36,7 @@ class DetailsMoviePage extends Component {
           <h3>DetailsPage</h3>
           <div className="row">
             <div className="col-md-6">
-              <img className="img-fluid" style={{ width: 150, height: 300, objectFit: "cover" }} src={detailMovie?.hinhAnh} alt=""  />
+              <img className="img-fluid" style={{ width: 150, height: 300, objectFit: "cover" }} src={detailMovie?.hinhAnh} alt="" />
             </div>
 
             {/* {this.renderDetailMovie()} */}

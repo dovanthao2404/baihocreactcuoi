@@ -1,4 +1,3 @@
-import { Route } from "react-router"
 import AboutPage from "../containers/HomeTemplate/AboutPage"
 import HomePage from "../containers/HomeTemplate/HomePage"
 import DetailMoviePage from "./../containers/HomeTemplate/DetailMoviePage"
@@ -9,6 +8,7 @@ import HomeTemplate from "../containers/HomeTemplate"
 import AdminTemplate from "../containers/AdminTemplate"
 import HOC from "../containers/HomeTemplate/HOC/HOC"
 import RenderPropsPage from "../containers/HomeTemplate/RenderPropsPage"
+import HookPage from "../containers/HomeTemplate/HookPage"
 
 const routeHome = [
   {
@@ -35,7 +35,12 @@ const routeHome = [
     exact: false,
     path: "/render-props",
     component: RenderPropsPage
+  }, {
+    exact: false,
+    path: "/hook",
+    component: HookPage
   }
+
 ]
 const routeAdmin = [
   {
@@ -52,12 +57,12 @@ const routeAdmin = [
 
 export const renderRouteHome = () => {
   return routeHome.map((route, key) => {
-    return <HomeTemplate key={key} exact={route.exact} path={route.path} component={route.component} />
+    return <HomeTemplate key={key} exact={route.exact} path={route.path} Component={route.component} />
   })
 }
 
 export const renderRouteAdmin = () => {
   return routeAdmin.map((route, key) => {
-    return <AdminTemplate key={key} exact={route.exact} path={route.path} component={route.component} />
+    return <AdminTemplate key={key} exact={route.exact} path={route.path} Component={route.component} />
   })
 }

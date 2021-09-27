@@ -26,6 +26,9 @@ export default class Navbar extends Component {
             <li className="nav-item">
               <NavLink className="nav-link" activeStyle={{ fontWeight: "bold" }} to="/render-props">RenderProp</NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" activeStyle={{ fontWeight: "bold" }} to="/hook">Hook</NavLink>
+            </li>
             {/* <li className="nav-item">
               <NavLink className="nav-link" to="/about">About</NavLink>
             </li> */}

@@ -1,6 +1,5 @@
 import React from 'react'
-import MouseWithCat from './MouseWithCat';
-import { Mouse } from './Mouse';
+
 import Cat from './Cat';
 import WithMouse from './WithMouse';
 
