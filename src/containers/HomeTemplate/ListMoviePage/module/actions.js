@@ -1,33 +1,25 @@
-import axios from "axios"
-import * as ActionType from "./constants"
-
+import * as ActionType from "./constants";
+import api from "../../../../util/ApiUtil";
 export const actFetchListApi = () => {
-  return async dispatch => {
-    dispatch(actListMovieRequest())
+  return async (dispatch) => {
+    dispatch(actListMovieRequest());
     try {
-      const resp = await axios({
-        url: "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP07",
-        method: "GET"
-      })
-      dispatch(actListMovieSuccess(resp.data))
+      const resp = await api.get("/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01");
+      dispatch(actListMovieSuccess(resp.data.content));
     } catch (error) {
-      dispatch(actListMovieFail(error))
+      dispatch(actListMovieFail(error));
     }
-  }
-}
+  };
+};
 
-export const actListMovieRequest = () => (
-  {
-    type: ActionType.LIST_MOVIE_REQUEST
-  }
-)
-export const actListMovieSuccess = (payload) => (
-  {
-    type: ActionType.LIST_MOVIE_SUCCESS, payload
-  }
-)
-export const actListMovieFail = (payload) => (
-  {
-    type: ActionType.LIST_MOVIE_FAIL, payload
-  }
-)
+export const actListMovieRequest = () => ({
+  type: ActionType.LIST_MOVIE_REQUEST,
+});
+export const actListMovieSuccess = (payload) => ({
+  type: ActionType.LIST_MOVIE_SUCCESS,
+  payload,
+});
+export const actListMovieFail = (payload) => ({
+  type: ActionType.LIST_MOVIE_FAIL,
+  payload,
+});
